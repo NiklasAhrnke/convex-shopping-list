@@ -18,29 +18,31 @@ function App() {
   const deleteArticle = useMutation(api.articles.deleteArticle);
 
     return (
-        <>
-          <div className={"p-12 text-2xl font-[Indie_Flower]"}>
+        <div className={"p-12 w-full md:w-225 mx-auto"}>
+          <h1 className={"text-3xl font-semibold font-[Indie_Flower] mb-4"}>Einkaufsliste</h1>
+          <div className={"text-2xl font-[Indie_Flower]"}>
             <ul className={"flex flex-col gap-4 list-disc"}>
               {articles?.map(({_id, quantity, unit, name, isCompleted}) => (
-                  <li key={_id}>
+                  <li key={_id} className={"hover:bg-black/5 rounded-lg"}>
                     <div className={"flex items-center justify-between"}>
                       <span
-                          className={isCompleted ? "line-through" : ""}
+                          className={`${isCompleted ? "line-through" : ""} hover:cursor-pointer`}
                           onClick={async () => {
                             await setComplete({id: _id, complete: !isCompleted})
                           }}
                       >
                         {quantity} {unit} {name}
                       </span>
-                      <button onClick={async () => await deleteArticle({id: _id})} aria-label={"delete this item"}>
-                        <XMarkIcon className={"size-4"}></XMarkIcon></button>
+                      <button onClick={async () => await deleteArticle({id: _id})} aria-label={"delete this item"} className={"hover:cursor-pointer pr-4"}>
+                        <XMarkIcon className={"size-4"}></XMarkIcon>
+                      </button>
                     </div>
                   </li>)
               )}
             </ul>
           </div>
 
-          <div className="fixed bottom-0 left-0 right-0 flex items-center border border-gray-300 rounded-lg bg-white focus-within:border-gray-500 overflow-hidden m-6">
+          <div className="w-[90%] md:w-225 mx-auto fixed bottom-0 left-0 right-0 flex items-center border border-gray-300 rounded-lg bg-white focus-within:border-gray-500 overflow-hidden m-6">
 
             <input
               type="number"
@@ -70,14 +72,14 @@ function App() {
             <div className="w-px h-5 bg-gray-200 mx-1" aria-hidden="true"/>
 
             <button aria-label="Hinzufügen"
-                    className="px-4 h-full text-gray-600"
+                    className="px-4 h-full text-gray-600 hover:cursor-pointer"
                     onClick={async () => {await setArticle({name: name, quantity: quantity, unit: unit}); setName(""); setQuantity(""); setUnit("")}}
             >
               <PlusIcon className={"size-4"}/>
             </button>
 
           </div>
-        </>
+        </div>
     )
 }
 
