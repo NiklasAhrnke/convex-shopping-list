@@ -64,7 +64,7 @@ function App() {
                 type="text"
                 value={name}
                 onChange={e => setName(e.target.value)}
-                className="flex-1 bg-transparent outline-none py-2 font-sans text-base placeholder:text-gray-400"
+                className="w-1/2 flex bg-transparent outline-none py-2 font-sans text-base placeholder:text-gray-400"
             />
 
             <div className="w-px h-5 bg-gray-200 mx-1" aria-hidden="true"/>
