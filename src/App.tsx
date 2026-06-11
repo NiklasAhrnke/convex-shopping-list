@@ -20,7 +20,7 @@ function App() {
     return (
         <>
           <div className={"p-12 text-2xl font-[Indie_Flower]"}>
-            <ul className={"list-disc"}>
+            <ul className={"flex flex-col gap-4 list-disc"}>
               {articles?.map(({_id, quantity, unit, name, isCompleted}) => (
                   <li key={_id}>
                     <div className={"flex items-center justify-between"}>
@@ -46,7 +46,7 @@ function App() {
               type="number"
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
-              className={"w-1/6 flex-1 bg-transparent outline-none py-2 pl-4 font-sans text-base"}
+              className={"w-1/6 flex bg-transparent outline-none py-2 pl-4 font-sans text-base"}
             />
 
             <div className="w-px h-5 bg-gray-200 mx-1" aria-hidden="true"/>
@@ -55,7 +55,7 @@ function App() {
                 type="text"
                 value={unit}
                 onChange={(e) => setUnit(e.target.value)}
-                className={"w-1/6 flex-1 bg-transparent outline-none py-2 font-sans text-base"}
+                className={"w-1/4 flex bg-transparent outline-none py-2 font-sans text-base"}
             />
 
             <div className="w-px h-5 bg-gray-200 mx-1" aria-hidden="true"/>
