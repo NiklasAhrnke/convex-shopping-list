@@ -42,34 +42,46 @@ function App() {
             </ul>
           </div>
 
-          <div className="w-[90%] md:w-225 mx-auto fixed bottom-0 left-0 right-0 flex items-center border border-gray-300 rounded-lg bg-white focus-within:border-gray-500 overflow-hidden m-6">
+          <div className="w-[90%] md:w-225 mx-auto fixed bottom-0 left-0 right-0 flex items-center border border-gray-300 rounded-lg bg-white focus-within:border-gray-500 overflow-hidden m-6 p-2">
 
-            <input
-              type="number"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
-              className={"w-1/6 flex bg-transparent outline-none py-2 pl-4 font-sans text-base"}
-            />
+            <div className={"w-1/6 flex flex-col items-start justify-center"}>
+                <label htmlFor={"quantity-input"} className={"text-[10px] text-gray-500 font-semibold"}>MENGE</label>
+                <input
+                    id={"quantity-input"}
+                    type="number"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                    className={"w-full flex bg-transparent outline-none font-sans text-base"}
+                />
+            </div>
 
-            <div className="w-px h-5 bg-gray-200 mx-1" aria-hidden="true"/>
+            <div className="w-px h-10 bg-gray-200 mx-1" aria-hidden="true"/>
 
-            <input
-                type="text"
-                value={unit}
-                onChange={(e) => setUnit(e.target.value)}
-                className={"w-1/4 flex bg-transparent outline-none py-2 font-sans text-base"}
-            />
+            <div className={"w-1/4 flex flex-col items-start justify-center pl-2"}>
+                <label htmlFor={"unit-input"} className={"text-[10px] text-gray-500 font-semibold"}>EINHEIT</label>
+                <input
+                    id={"unit-input"}
+                    type="text"
+                    value={unit}
+                    onChange={(e) => setUnit(e.target.value)}
+                    className={"w-full flex bg-transparent outline-none font-sans text-base"}
+                />
+            </div>
 
-            <div className="w-px h-5 bg-gray-200 mx-1" aria-hidden="true"/>
+            <div className="w-px h-10 bg-gray-200 mx-1" aria-hidden="true"/>
 
-            <input
-                type="text"
-                value={name}
-                onChange={e => setName(e.target.value)}
-                className="w-1/2 flex bg-transparent outline-none py-2 font-sans text-base placeholder:text-gray-400"
-            />
+            <div className={"w-1/2 flex flex-col items-start justify-center pl-2"}>
+                <label htmlFor={"name-input"} className={"text-[10px] text-gray-500 font-semibold"}>ARTIKEL</label>
+                <input
+                    id={"name-input"}
+                    type="text"
+                    value={name}
+                    onChange={e => setName(e.target.value)}
+                    className="w-full flex bg-transparent outline-none font-sans text-base"
+                />
+            </div>
 
-            <div className="w-px h-5 bg-gray-200 mx-1" aria-hidden="true"/>
+            <div className="w-px h-10 bg-gray-200 mx-1" aria-hidden="true"/>
 
             <button aria-label="Hinzufügen"
                     className="px-4 h-full text-gray-600 hover:cursor-pointer"
