@@ -9,6 +9,7 @@
  */
 
 import type * as articles from "../articles.js";
+import type * as lists from "../lists.js";
 
 import type {
   ApiFromModules,
@@ -18,6 +19,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   articles: typeof articles;
+  lists: typeof lists;
 }>;
 
 /**
