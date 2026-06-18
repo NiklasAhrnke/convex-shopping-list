@@ -14,7 +14,7 @@ function ListDetails() {
     const [quantity, setQuantity] = useState("");
     const [unit, setUnit] = useState("");
 
-    const articles = useQuery(api.articles.getArticles, {listId: listId as Id<"lists">});
+    const articles = useQuery(api.articles.getArticles, listId ? {listId: listId as Id<"lists">} : "skip");
     const setArticle = useMutation(api.articles.setArticle);
 
     const setComplete = useMutation(api.articles.setComplete);
